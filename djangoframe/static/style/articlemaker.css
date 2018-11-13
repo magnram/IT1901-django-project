@@ -1,0 +1,12 @@
+h1,h6 {
+	margin-bottom: 0;
+	text-align:left;
+	margin-top: 10px;
+}
+h6 {
+	margin-top:0;
+}
+
+select {
+	margin-top: 20px;
+}

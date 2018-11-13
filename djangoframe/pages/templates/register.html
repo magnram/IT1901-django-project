@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/register.css' %}">
+</head>
+<body>
+	<header></header>
+	<div id="container">
+		<form method="post" action="">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" class="black-button" value="Submit info">
+		</form>
+		{% if wrongdetails == 1 %}
+		<p class="wronginfo">There's something wrong with what you entered </p>
+		{% endif %}
+	</div>
+	<footer></footer>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/login.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+</body>
+</html>

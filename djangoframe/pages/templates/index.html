@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Articles</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/index.css' %}">
+</head>
+<body>
+<header></header>
+<div id="container">
+	<input type="text" id="searchBar" placeholder="Search for article" onkeyup="search()">
+	<br>
+	<div id="filter">
+		<span class="filter-part btnselected" id="btnCat"> FILTER </span>
+		<span class="filter-part btndeselected" id="btnFollowing"> FOLLOWING </span>
+		<div class="box" id="cat-box">
+		</div>
+		<div class="box" id="follow-box">You are not following anything</div>
+	</div>
+	<table class="supertable sortTable">
+		<tr>
+			<th onclick="sortTable(0,0)"> Title </th>
+			<th onclick="sortTable(1,0)"> Author(s) </th>
+			<th onclick="sortTable(2,0)"> Date </th>
+		</tr>
+	</table>
+</div>
+<footer></footer>
+
+
+	<!-- <script src="{% static 'scripts/variables.js' %}"></script> -->
+	<script src="{% static 'scripts/jquery.js' %}"></script>
+
+
+
+	<script type="text/javascript">
+	articles = {{ articlelist|safe }}
+	categories = {{ categorieslist|safe }}
+	followingPeople = {{ followingauthors|safe }}
+	followingCategories = {{ followingcategories|safe }}
+	imgsrc = "{% static 'images/loading.gif' %}";
+	userid = {{ userid }}
+	let isExecutiveEditor = {{ isExecutiveEditor|safe }}
+	//console.log(articlelist)
+	</script>
+
+
+	<script type="text/javascript">
+		let options = {{ site|safe }}
+		let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/sorttable.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/index.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

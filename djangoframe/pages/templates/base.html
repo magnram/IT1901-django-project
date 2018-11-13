@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Article name</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/article.css' %}">
+</head>
+<body>
+
+	{% block content %}{% endblock %}
+
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/article.js' %}"></script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+</body>
+</html>

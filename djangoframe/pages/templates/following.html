@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Following</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/following.css' %}">
+</head>
+
+<body>
+  {% csrf_token %}
+  <header></header>
+  <div id="container">
+    <h1>Following</h1>
+    <div class="flex">
+      <div class="flex-left">
+        <table class="supertable sortTable">
+          <tr>
+            <th colspan="2" onclick="sortTable(0,0)">Authors</th>
+          </tr>
+        </table>
+      </div>
+      <div class="flex-right">
+        <table class="supertable sortTable">
+          <tr>
+            <th colspan="2" onclick="sortTable(0,1)">Categories</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <footer></footer>
+
+
+  <!-- <script src="{% static 'scripts/variables.js' %}"></script> -->
+  <script src="{% static 'scripts/jquery.js' %}"></script>
+
+
+  <script type="text/javascript">
+    let usernames = {{ authors|safe }}
+    let categories = {{ categoriesList|safe }}
+    imgsrc = "{% static 'images/loading.gif' %}";
+  </script>
+
+  <script type="text/javascript">
+      let options = {{ site|safe }}
+  </script>
+  <script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+  <script src="{% static 'scripts/sorttable.js' %}"></script>
+  <script src="{% static 'scripts/header.js' %}"></script>
+  <script src="{% static 'scripts/following.js' %}"></script>
+  <script src="{% static 'scripts/footer.js' %}"></script>
+  <script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+
+</html>

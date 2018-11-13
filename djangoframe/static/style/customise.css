@@ -1,0 +1,62 @@
+#container {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2vw;
+}
+
+#colorTitle ,#titleTitle, #headerTitle {
+    display: flex;
+    align-content: center;
+    font-size: 25px;
+    font-family: Alef, Arial, Verdana;
+    font-weight: bold;
+}
+
+.textButton {
+    -webkit-user-select: none; /* Safari, iOS, and Android */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.optionTable, #headTitle, #colorChooser {
+    margin-left: 10px;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    margin-top: 12px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid black;
+}
+
+.sliderBox {
+    width: 10%;
+}
+
+.sliderBox input[type=range] {
+    border: #272727 1px solid;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 20px;
+    background: #a3a3a3;
+    outline: none;
+    opacity: 0.7;
+}
+
+.sliderBox input[type=range]:hover {
+    opacity: 1;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    margin-top: 8px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-left: 8px solid black;
+}

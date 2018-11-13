@@ -1,0 +1,113 @@
+#container {
+    width: 60vw;
+    max-width: 1000px;
+    padding-bottom: 2vw;
+}
+
+#image {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+#buttonDiv {
+    width: 100%;
+
+}
+
+#buttondiv, input[type=button] {
+    margin-right: 1vh;
+}
+
+#kommentar {
+    text-align: left;
+}
+
+textarea {
+    font-family: "Trebuchet MS";
+}
+
+form {
+    display: inline;
+}
+
+.shareLinkFacebook {
+    padding: 5px 10px;
+    background-color: #3b5998;
+    color: #f7f7f7;
+    text-decoration: none;
+    font-family: "Helvetica", sans-serif;
+}
+
+.shareLinkTwitter {
+    display: inline;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: #55acee;
+    color: #f5f8fa;
+    text-decoration: none;
+    font-family: "Helvetica", sans-serif;
+}
+
+.shareLinkTwitter:hover,.shareLinkFacebook:hover  {
+    box-shadow: 2px 2px 3px #BBB ;
+}
+
+#likeDiv {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+#likeBtn {
+    height: 40px;
+    width: 50px;
+    background-color: #373737;
+    color: #C0B283;
+    font-size: 30px;
+    border-style: solid none solid solid;
+    border-width: 1px;
+    border-radius: 5px 0px 0px 5px;
+    border-color: black !important;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    -webkit-user-select: none; /* Safari, iOS, and Android */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+#likeBtn:hover {
+    cursor: pointer;
+}
+
+#likeCount {
+    height: 40px;
+    width: 50px;
+    background-color: #999;
+    border: 1px solid;
+    border-radius: 0px 5px 5px 0px;
+    border-color: black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    color: #756e52;
+}
+
+#comments div:nth-child(odd) {
+    text-align: right;
+}
+.red {
+    cursor: pointer;
+    color: red;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.regular {
+    cursor: pointer;
+    color: black;
+    font-style: italic;
+    text-decoration: none;
+}

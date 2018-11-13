@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Needs proof</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/needsproof.css' %}">
+</head>
+
+<body>
+  <header></header>
+  <div id="container">
+    <h1>Needs proofreading</h1>
+    <div id="article-list">
+      <table class="supertable sortTable">
+        <tr>
+          <th onclick="sortTable(0,0)"> Title </th>
+          <th onclick="sortTable(1,0)"> Author(s) </th>
+          <th onclick="sortTable(2,0)"> Date </th>
+          <th onclick="sortTable(3,0)"> Assign </th>
+          <th onclick="sortTable(4,0)"> Status </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <footer></footer>
+
+  <!-- <script src="{% static 'scripts/variables.js' %}"></script> -->
+  <script src="{% static 'scripts/jquery.js' %}"></script>
+
+	<script type="text/javascript">
+	articles = {{ articlelist|safe }};
+    let editors = {{ editors|safe }};
+    let isExecutive = {{ isExecutive|safe}}
+  USERNAME = "{{ username|escape }}";
+    imgsrc = "{% static 'images/loading.gif' %}";
+	</script>
+
+  <script type="text/javascript">
+      let options = {{ site|safe }}
+
+  </script>
+  <script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+  <script src="{% static 'scripts/sorttable.js' %}"></script>
+  <script src="{% static 'scripts/header.js' %}"></script>
+  <script src="{% static 'scripts/needsproof.js' %}"></script>
+  <script src="{% static 'scripts/footer.js' %}"></script>
+  <script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+#container {
+	margin: 50px auto;
+}
+#container table {
+	width: 75%;
+	float: left;
+}
+td:nth-child(1) {
+	width:50%;
+}
+td:nth-child(2) {
+	width:35%;
+}
+td:nth-child(3) {
+	width:15%;
+}
+.follow-button {
+	float: right;
+	height:20px;
+}
+#filter {
+	/*background-color: #373737;*/
+	width:23%;
+	min-width:185px;
+	overflow: none;
+	float: left;
+	margin-right:2%;
+	margin-bottom:10px;
+}
+#filter input[type="text"] {
+	width:99%;
+}
+
+.filter-part {
+	width: 50%;
+	height:40px;
+	color: #C0B283;
+	line-height: 40px;
+	font-size: 13px;
+	float: left;
+	text-align: center;
+}
+ul {
+	list-style: none;
+}
+
+#cat-box, #follow-box {
+	color: #C0B283;
+	background-color: #373737;
+}
+#follow-box {
+	display: none;
+}
+.btnselected {
+    background-color: #373737;
+}
+.btndeselected {
+    background-color: rgba(0,0,0,0.1)!important;
+}
+.btndeselected:hover {
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.1)!important;
+}
+
+.box {
+    padding: 1.5vw 1vw 1vw 1vw;
+}
+form {
+	width:100%;
+	min-width: 0;
+}
+
+#submitcat{
+	display: none;
+}
+
+#cancel{
+	display: none;
+}
+
+#the_submit_button{
+	float: left;
+	margin-right: 5px;
+}
+
+#submitcat {
+	width: 100%;
+}
+
+#catText {
+	display: inline;
+}
+
+#kategori_knapp {
+	font-style: italic;
+	cursor:pointer;
+}
+#kategori_knapp_slett {
+	font-style: italic;
+	color:#FF4444;
+	cursor:pointer;
+}

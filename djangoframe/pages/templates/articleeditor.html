@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/articlemaker.css' %}">
+	<script src="{% static 'scripts/jquery.js' %}"></script>
+</head>
+<body>
+	<header></header>
+	<div id="container">
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<h1> Title:* </h1>
+			<input required type="text" placeholder="Write the title of your article here" name="article_title" value="{{ title }}">
+			<h1> Co-Author: </h1>
+			<select id="dropdown-menu" name="co_author" required>
+				<option value="0" selected="selected">-- Choose a co-author --</option>
+				{% for auth in authors %}
+					<option value="{{ auth.id }}" {% if coauthorId == auth.id %} selected="true" {% endif %}> {{ auth.name }} </option>
+				{% endfor %}
+			</select>			<h1> Article* </h1>
+			<textarea required placeholder="Write your article here" name="article_content">{{ content }}</textarea>
+			<h1> Category* </h1>
+			<select id="dropdown-menu" name="article_category" required>
+				<option value="none" selected="selected">-- Choose a category --</option>
+				{% for cat in categories %}
+					<option value="{{ cat.title }}" {% if category == cat.title %} selected="true" {% endif %}> {{ cat.title }} </option>
+				{% endfor %}
+			</select>
+			<h1> Image </h1>
+			{% if image %}
+				<h6>Current image. If you wish to change this, upload a new file below</h6>
+			{% else %}
+				<h6>There's no image attached to this post yet</h6>
+			{% endif %}
+			<img src="{{image}}" alt="" style="width: 200px; height: auto; display: block;" id="currentimage">
+			<input type="file" name="image" style="display: block; margin-top: 20px;" id="fileinput" onchange="readURL(this)">
+			<hr>
+			<input type="submit" class="black-button" value="Save and submit" formaction="/update_article/{{id}}/toreview/">
+			{% if status == "Draft" %}<input type="submit" class="black-button" value="Update draft" formaction="/update_article/{{id}}/draft/">{% endif %}
+			<input type="submit" class="red-button" value="Cancel" formaction="/savedarticles">
+			<h6>* required field</h6>
+		</form>
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+				// let input = document.querySelector("#fileinput")
+				function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#currentimage')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/articlemaker.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

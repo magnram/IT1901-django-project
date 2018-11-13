@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Alef|Comfortaa|Cookie');
+
+body {
+	margin: 0;
+	background-color: #DCD0C0;
+	font-family: Alef, Arial, Verdana;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.supertable {
+	border-collapse: collapse;
+	width:80%;
+	border: solid black;
+	margin: 0 auto;
+}
+.supertable th {
+	background-color: #373737;
+	color: #C0B283;
+}
+.supertable tr {
+	background-color: #B5B5B5;
+	border: solid black 1px;
+	height:40px;
+}
+
+.supertable td {
+	padding: 5px 10px;
+}
+
+tr:nth-child(2n) {
+	background-color: #989898;
+}
+tr:not(:first-child):hover {
+	cursor:pointer;
+	background-color:darkgray;
+}
+#container {
+	width: 90%;
+	overflow-wrap: break-word;
+	margin: auto;
+	flex: 1;
+}
+
+h1 {
+	text-align: center;
+}
+.black-button,.red-button {
+  background-color: #373737;
+  color: #C0B283;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid darkgrey;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+  height:40px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+.black-button:hover{
+	cursor:pointer;
+	opacity: 0.85;
+}
+.red-button {
+	background-color: #FFF;
+	color: #F00;
+}
+.red-button:hover {
+	cursor:pointer;
+	background-color:#EEE;
+}
+.assign-button {
+  width: 100px;
+  background-color: #CFCFCF;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
+}
+
+.divpagetitle {
+	width: 90%;
+	margin: 50px auto;
+	height: auto;
+}
+form {
+	width:60%;
+	min-width:200px;
+	margin: auto;
+	text-align:center;
+}
+input[type=text], input[type=password], textarea, select {
+  height:30px;
+  display:block;
+  margin: auto;
+  width:100%;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-top: 0;
+  border: 1px solid darkgrey;
+  border-radius: 3px;
+}
+textarea {
+	height:180px;
+	width: 99%;
+}
+select {
+	background-color: #DDD;
+}
+select:hover {
+	cursor:pointer;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #373737;
+}
+/* .divpagetitle h2 {
+	width: 75%;
+	text-align: center;
+	margin-left: 50%;
+	transform: translate3d(-50%, 0, 0);
+	font-size: 28px;
+} */
+.sortTable {
+	cursor: pointer;
+}

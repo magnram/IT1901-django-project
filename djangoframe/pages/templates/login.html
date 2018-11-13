@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/login.css' %}">
+</head>
+<body>
+	<header></header>
+	<div id="container">
+		<form method="post">
+			{% csrf_token %}
+			<input type="text" placeholder="username" name="username">
+			<input type="password" placeholder="password" name="password">
+			<div id="buttons">
+				<input type="submit" class="black-button" value="Login" formaction="/loginuser/">
+				<a href="/registeruser/"><button type="button" class="black-button">Register</button></a>
+			</div>
+		</form>
+		{% if wrongdetails == 1 %}
+		<p>There's something wrong with what you entered </p>
+		{% endif %}
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/login.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

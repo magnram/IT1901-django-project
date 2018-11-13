@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Statistics</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/statistics.css' %}">
+</head>
+
+<body>
+  <header></header>
+
+  <div id="container">
+    <div class="flex">
+      <div class="flex-left">
+        <h1> Most popular categories </h1>
+          <table class="supertable sortTable" id="left-table">
+            <tr>
+              <th onclick="sortTable(0,0)"> Rank </th>
+              <th onclick="sortTable(1,0)"> Category </th>
+              <th onclick="sortTable(2,0)"> Followers </th>
+            </tr>
+            {% for el in liste2 %}
+            <tr style="cursor:default;">
+              <td> {{ forloop.counter }} </td>
+              <td> {{ el.name }} </td>
+              <td> {{ el.followers }} </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="flex-right">
+          <h1> Most popular authors </h1>
+          <table class="supertable sortTable">
+            <tr>
+              <th onclick="sortTable(0,1)"> Rank </th>
+              <th onclick="sortTable(1,1)"> Author </th>
+              <th onclick="sortTable(2,1)"> Followers </th>
+            </tr>
+            {% for el in liste %}
+
+              <tr onclick="window.location='profile/{{el.id}}'">
+                <td> {{ forloop.counter }} </td>
+                <td> {{ el.name }} </td>
+                <td> {{ el.followers }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="flex-left">
+          <h1> Most commented articles </h1>
+            <table class="supertable sortTable" id="left-table">
+              <tr>
+                <th onclick="sortTable(0,2)"> Rank </th>
+                <th onclick="sortTable(1,2)"> Article </th>
+                <th onclick="sortTable(2,2)"> Comments </th>
+              </tr>
+              {% for el in liste3 %}
+              <tr onclick="window.location='article/{{el.id}}'">
+                <td> {{ forloop.counter }} </td>
+                <td> {{ el.title }} </td>
+                <td> {{ el.comments }} </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+          <div class="flex-right">
+            <h1> Most liked articles </h1>
+            <table class="supertable sortTable">
+              <tr>
+                <th onclick="sortTable(0,3)"> Rank </th>
+                <th onclick="sortTable(1,3)"> Article </th>
+                <th onclick="sortTable(2,3)"> Likes </th>
+              </tr>
+              {% for el in liste4 %}
+
+                <tr onclick="window.location='article/{{el.id}}'">
+                  <td> {{ forloop.counter }} </td>
+                  <td> {{ el.title }} </td>
+                  <td> {{ el.likes }}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="flex-left">
+            <h1> Most active authors </h1>
+              <table class="supertable sortTable" id="left-table">
+                <tr>
+                  <th onclick="sortTable(0,4)"> Rank </th>
+                  <th onclick="sortTable(1,4)"> Author </th>
+                  <th onclick="sortTable(2,4)"> Articles </th>
+                </tr>
+                {% for el in liste5 %}
+                <tr onclick="window.location='profile/{{el.id}}'">
+                  <td> {{ forloop.counter }} </td>
+                  <td> {{ el.name }} </td>
+                  <td> {{ el.articles }} </td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <div class="flex-right">
+              <h1> Most saved articles </h1>
+              <table class="supertable sortTable">
+                <tr>
+                  <th onclick="sortTable(0,5)"> Rank </th>
+                  <th onclick="sortTable(1,5)"> Article </th>
+                  <th onclick="sortTable(2,5)"> Saves </th>
+                </tr>
+                {% for el in liste6 %}
+
+                  <tr onclick="window.location='article/{{el.id}}'">
+                    <td> {{ forloop.counter }} </td>
+                    <td> {{ el.title }} </td>
+                    <td> {{ el.saves }}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+  </div>
+
+  <footer></footer>
+	<script type="text/javascript">
+
+	</script>
+  <script type="text/javascript">
+				let usernameID = "{{username}}"
+        let options = {{site|safe}}
+	</script>
+  <script src="{% static 'scripts/sorttable.js' %}"></script>
+
+  <script src="{% static 'scripts/header.js' %}"></script>
+  <script src="{% static 'scripts/footer.js' %}"></script>
+  <script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+
+</html>

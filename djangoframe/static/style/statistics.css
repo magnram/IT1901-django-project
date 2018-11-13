@@ -1,0 +1,16 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+.flex-left, .flex-right {
+  margin: 0 50px;
+}
+
+
+table {
+  min-width: 15vw;
+  text-align: center;
+}

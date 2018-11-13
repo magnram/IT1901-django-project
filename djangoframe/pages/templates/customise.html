@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customise</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/customise.css' %}">
+</head>
+<body>
+
+{% csrf_token %}
+<header></header>
+
+<div id="container">
+    <div id="titleTitle" class="textButton"><div id="titleArrow" class="arrow-right"></div>Title</div>
+    <div id="titleChooser" style="display: none">
+        <input id="headTitle" value="TheBvhjelmTimes" type="text" oninput="setTitle()" maxlength="40">
+    </div>
+    <div id="colorTitle" class="textButton" display="block"><div id="colorArrow" class="arrow-right"></div>Color</div>
+    <div id="colorChooser" style="display: none">
+        <h3 class="textButton">Header and Footer</h3>
+        <table class="optionTable">
+            <tr>
+                <td class="sliderBox">
+                    R: <input id="hafR" oninput="previewHaf()" value="192" type="range" min="0" max="255"><br>
+                    G: <input id="hafG" oninput="previewHaf()" value="178" type="range" min="0" max="255"><br>
+                    B: <input id="hafB" oninput="previewHaf()" value="131" type="range" min="0" max="255">
+                </td>
+            </tr>
+        </table>
+        <h3 class="textButton">Text</h3>
+        <table class="optionTable">
+            <tr>
+                <td class="sliderBox">
+                    R: <input id="ttlR" oninput="previewHaf()" value="0" type="range" min="0" max="255"><br>
+                    G: <input id="ttlG" oninput="previewHaf()" value="0" type="range" min="0" max="255"><br>
+                    B: <input id="ttlB" oninput="previewHaf()" value="255" type="range" min="0" max="255">
+                </td>
+            </tr>
+        </table>
+        <h3 class="textButton">Background</h3>
+        <table class="optionTable">
+            <tr>
+                <td class="sliderBox">
+                    R: <input id="bgR" oninput="previewBg()" value="0" type="range" min="0" max="255"><br>
+                    G: <input id="bgG" oninput="previewBg()" value="255" type="range" min="0" max="255"><br>
+                    B: <input id="bgB" oninput="previewBg()" value="0" type="range" min="0" max="255">
+                </td>
+            </tr>
+        </table>
+        <h3 class="textButton">Buttons</h3>
+        <table class="optionTable">
+            <tr>
+                <td class="sliderBox">
+                    R: <input id="btnR" oninput="previewHaf()" value="255" type="range" min="0" max="255"><br>
+                    G: <input id="btnG" oninput="previewHaf()" value="0" type="range" min="0" max="255"><br>
+                    B: <input id="btnB" oninput="previewHaf()" value="255" type="range" min="0" max="255">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button class="black-button" onclick="submit()">Submit</button>
+    <button class="black-button" onclick="submitTtl()">Submit title</button>
+    <button class="black-button" onclick="reset()">Use default</button>
+</div>
+
+<footer></footer>
+<script type="text/javascript">
+    let options = {{ site|safe }}
+    let colors = {{ colors|safe }}
+</script>
+<script type="text/javascript">
+            let usernameID = "{{username}}"
+</script>
+<script src="{% static 'scripts/jquery.js' %}"></script>
+<script src="{% static 'scripts/header.js' %}"></script>
+<script src="{% static 'scripts/customisePage.js' %}"></script>
+<script src="{% static 'scripts/footer.js' %}"></script>
+<script src="{% static 'scripts/applyOptions.js' %}"></script>
+
+</body>
+</html>

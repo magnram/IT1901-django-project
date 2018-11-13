@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+	<title>Edit Profile</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/editprofile.css' %}">
+</head>
+<body>
+	<header></header>
+	<div id="container">
+		<form method="post">
+			{% csrf_token %}
+			<h1> Name: </h1>
+			<input required type="text" name="profile_name" placeholder="Write your name here" value="{{name}}">
+			<h1> Bio: </h1>
+			<textarea maxlength="4000" required name="profile_bio" placeholder="Write a description of yourself here">{{bio}}</textarea>
+			<br><br>
+			{% if layout == 1 %}
+			<input type="radio" name="layout" id="layout1" checked value="1">
+			{% else %}
+			<input type="radio" name="layout" id="layout1" value="1">
+			{% endif %}
+			<label for="layout1"><img src="{% static 'images/layout1.png' %}"></label>
+
+			{% if layout == 2 %}
+			<input type="radio" name="layout" id="layout2" checked value="2">
+			{% else %}
+			<input type="radio" name="layout" id="layout2" value="2">
+			{% endif %}
+			<label for="layout2"><img src="{% static 'images/layout2.png' %}"></label>
+			<br>
+			<input type="submit" class="black-button" value="Save changes" formaction="/updatebio/">
+			<a href="/profile">
+				<input type="button" class="red-button" value="Cancel">
+			</a>
+		</form>
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

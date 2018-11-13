@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Saved articles</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+</head>
+
+<body>
+  <header></header>
+  <div id="container">
+    <div id="writtenArticleDiv">
+      <br><h1>Articles I have written</h1>
+      <table id="own" class="supertable sortTable">
+        <tr>
+          <th onclick="sortTable(0,0)"> Title </th>
+          <th onclick="sortTable(1,0)"> Author(s) </th>
+          <th onclick="sortTable(2,0)"> Date </th>
+          <th onclick="sortTable(3,0)"> Status </th>
+        </tr>
+      </table>
+    </div>
+    <div id="savedArticleDiv">
+      <br><h1>Articles I have saved</h1>
+      <table id="saved" class="supertable sortTable">
+        <tr>
+          <th onclick="sortTable(0,1)"> Title </th>
+          <th onclick="sortTable(1,1)"> Author(s) </th>
+          <th onclick="sortTable(2,1)"> Date </th>
+          <th onclick="sortTable(3,1)"> Status </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <footer></footer>
+
+  <!-- <script src="{% static 'scripts/variables.js' %}"></script> -->
+
+	<script type="text/javascript">
+	let articles = {{ savedarticles|safe }}
+  let ownarticles = {{ ownarticles|safe}}
+  let isAuthor = {{ isAuthor|safe }}
+    let options = {{ site|safe }}
+	</script>
+  <script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+  <script src="{% static 'scripts/header.js' %}"></script>
+  <script src="{% static 'scripts/savedarticles.js' %}"></script>
+  <script src="{% static 'scripts/footer.js' %}"></script>
+  <script src="{% static 'scripts/applyOptions.js' %}"></script>
+  <script src="{% static 'scripts/sorttable.js' %}"></script>
+</body>
+
+</html>

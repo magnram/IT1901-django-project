@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/articlemaker.css' %}">
+	<script src="{% static 'scripts/jquery.js' %}"></script>
+</head>
+<body>
+	<header></header>
+	<div id="container">
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<h1> Title:* </h1>
+			<input required type="text" placeholder="Write the title of your article here" name="article_title">
+			<h1> Co-Author: </h1>
+			<select id="dropdown-menu" name="co_author" required>
+				<option value="0" selected="selected">-- Choose a co-author --</option>
+				{% for auth in authors %}
+					{% if auth.id != userid %}
+						<option value="{{ auth.id }}"> {{ auth.name }} </option>
+					{% endif %}
+				{% endfor %}
+			</select>			<h1> Article* </h1>
+			<textarea required placeholder="Write your article here" name="article_content"></textarea>
+			<h1> Category* </h1>
+			<select id="dropdown-menu" name="article_category" required>
+				<option value="none" selected="selected">-- Choose a category --</option>
+				{% for cat in categories %}
+					<option value="{{ cat.title }}"> {{ cat.title }} </option>
+				{% endfor %}
+			</select>
+			<h1> Image </h1>
+			<img src="" alt="" style="width: 200px; height: auto; display: block;" id="currentimage">
+			<input type="file" name="image" onchange="readURL(this)">
+			<hr>
+			<input type="submit" class="black-button" value="Submit" formaction="/create_article/toreview/">
+			<input type="submit" class="black-button" value="Save draft" formaction="/create_article/draft/">
+			<a href="/profile">
+				<input type="button" class="red-button" value="Cancel">
+			</a>
+			<h6>* required field</h6>
+		</form>
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+				function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#currentimage')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/articlemaker.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

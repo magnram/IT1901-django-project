@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  width:100%;
+  background-color: #373737;
+  color: #C0B283;
+  box-shadow: 10px 10px rgba(0,0,0,0.7);
+  text-align: center;
+  overflow: hidden;
+}
+footer h5 {
+  justify-self: center;
+  font-size: 12px;
+  width:100%;
+}

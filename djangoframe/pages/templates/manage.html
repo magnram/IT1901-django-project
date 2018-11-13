@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SITE</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/manage.css' %}">
+</head>
+<body>
+	<header></header>
+	<div id="container">
+	    <div id="article-list">
+	      <table>
+	        <tr>
+	          <th> Title </th>
+	          <th> Author(s) </th>
+	          <th> Date </th>
+	          <th> Assign </th>
+	        </tr>
+	      </table>
+	    </div>
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/variables.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/manage.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

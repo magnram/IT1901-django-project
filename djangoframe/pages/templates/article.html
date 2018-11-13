@@ -1,0 +1,66 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	{% if instance %} {{ instance.title }} {% else %} Article title {% endif %} </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/article.css' %}">
+	<script src="https://use.fontawesome.com/24b2085181.js"></script>
+</head>
+<body>
+	<header></header>
+	<div id="container">
+		<div id="container2">
+		</div>
+		<h1 id='kommentar'>Comments:</h1><hr><br>
+		<div id="comment" style="display: none; width: 60vw;
+	    max-width: 1000px; margin: auto;">
+			{% if userid != 0 %}
+			<br><h2><b>New comment:</b></h2>
+			<form method="post">
+				{% csrf_token %}
+				<textarea id="formText" required placeholder="Write comment here (this will show up for the author (& coauthor) when he visits his profile page)" name="content"></textarea>
+				<input type="hidden" name="author" value="{{instance.author}}">
+				<input type="hidden" name="coauthor" value="{{instance.coauthor}}">
+				<input type="hidden" name="articletitle" value="{{instance.title}}">
+				<input type="submit" id="formSubmit" class="black-button" value="Send comment" formaction="{{instance.action|escape}}">
+			</form>
+			{% endif %}
+		</div>
+	</div>
+	<footer></footer>
+
+	{% if instance %}
+	<script type="text/javascript">
+	let article = {{ instance|safe }}
+	let userid = {{ userid|safe }}
+	console.log(article)
+    let isAdmin = {{ isAdmin|safe }}
+    let isExecutiveEditor = {{ isExecutiveEditor|safe }}
+	let username = "{{ username|escape }}"
+	let isSaved = {{ isSaved|safe }}
+	let image = "{{ image|safe }}"
+	let comments = {{ comments|safe }}
+	let likescount = {{ likescount|safe }}
+	let liked = {{ liked|safe }}
+
+	//console.log(article)
+	</script>
+	{% endif %}
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<!-- <script src="{% static 'scripts/variables.js' %}"></script> -->
+	<script src="{% static 'scripts/jquery.js' %}"></script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/article.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>

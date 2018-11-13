@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/profile.css' %}">
+</head>
+<body>
+	<header></header>
+	<div class="disable-site"></div>
+	<div id="container">
+		{% if comments|length > 0 %}
+		<div class="disable-site" style="display:block;"></div>
+		<div id="comments">
+			<h1>Comments</h1>
+			{% for comment in comments %}
+				<div class="prompt">
+				<form method="post">{% csrf_token %}<input type="submit" value="Mark as read" class="black-button" formaction="/deletecomment/{{comment.id}}/"></form>
+				{% if comment.request == 0 %}
+				<p>On article <b>{{comment.articletitle}}</b>:</p>
+				{% else %}
+				<p>Request from <b>{{comment.username}}</b>:</p>
+				{% endif %}
+				<p>{{comment.content}}</p>
+				</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<div style="display:none;" class="requesttoadmin" id="comments">
+			<h1>Request to admin:</h1>
+			<form method="post">
+				{% csrf_token %}
+				<textarea name="content" placeholder="Write your message to the admin here:"> </textarea>
+				<input type="submit" class="black-button" formaction="/createrequest/" value="Submit message">
+				<input type="button" class="red-button" onclick="hideRequest()" value="Cancel">
+
+			</form>
+		</div>
+	</div>
+	<footer></footer>
+
+	<script src="{% static 'scripts/jquery.js' %}"></script>
+	<!-- <script src="{% static 'scripts/variables.js' %}"></script> -->
+	{% if user %}
+	<script type="text/javascript">
+	let isExecutiveEditor = {{ isExecutiveEditor|safe }}
+	let isAuthor = {{ isAuthor|safe }}
+	let isEditor = {{ isEditor|safe }}
+	let layout = {{ layout|safe }}
+	let isAdmin = {{ isAdmin|safe }}
+  let username = "{{ user|escape }}"
+	let name = "{{ user.first_name|escape }}" + " " + "{{ user.last_name|escape }}"
+	let bio = "{{ biotext|escape }}"
+	</script>
+	{% endif %}
+
+	<script type="text/javascript">
+        let options = {{ site|safe }}
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/profile.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+
+</body>
+</html>

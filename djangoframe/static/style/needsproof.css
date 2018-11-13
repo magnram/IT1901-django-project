@@ -1,0 +1,12 @@
+.assignWithList button, .assignWithList select {
+    display: inline;
+}
+
+.assignWithList select {
+    width: 50%;
+}
+
+table {
+    width: 85% !important;
+    margin-bottom: 8vh !important;
+}

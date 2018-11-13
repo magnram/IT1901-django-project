@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/viewprofile.css' %}">
+</head>
+<body>
+	<header></header>
+	<div id="container"></div>
+	<footer></footer>
+
+	<script src="{% static 'scripts/sorttable.js' %}"></script>
+	<script src="{% static 'scripts/jquery.js' %}"></script>
+	<script type="text/javascript">
+        let articles = {{ articleList|safe }}
+	let isFollowed = {{ isFollowed|safe }}
+  let username = "{{ targetuser|escape }}"
+	let profileid = {{ id|safe }}
+	let userid = {{ userid|safe }}
+	let name = "{{ name|escape}}";
+	let bio = "{{ biotext|escape }}";
+	let options = {{ site|safe }}
+	</script>
+	<script type="text/javascript">
+				let usernameID = "{{username}}"
+	</script>
+	<script src="{% static 'scripts/header.js' %}"></script>
+	<script src="{% static 'scripts/viewprofile.js' %}"></script>
+	<script src="{% static 'scripts/footer.js' %}"></script>
+	<script src="{% static 'scripts/applyOptions.js' %}"></script>
+</body>
+</html>
